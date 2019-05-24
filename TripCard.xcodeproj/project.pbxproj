@@ -13,6 +13,7 @@
 		F42171AC1DD1C03D0093C82D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42171AA1DD1C03D0093C82D /* LaunchScreen.storyboard */; };
 		F42171B41DD1C0540093C82D /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42171B31DD1C0540093C82D /* TripViewController.swift */; };
 		F4F78F3F22982C5900B77B8A /* TripCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78F3E22982C5900B77B8A /* TripCollectionViewCell.swift */; };
+		F4F78F412298306A00B77B8A /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78F402298306A00B77B8A /* Trip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F42171AD1DD1C03D0093C82D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F42171B31DD1C0540093C82D /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		F4F78F3E22982C5900B77B8A /* TripCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCollectionViewCell.swift; sourceTree = "<group>"; };
+		F4F78F402298306A00B77B8A /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				F42171AD1DD1C03D0093C82D /* Info.plist */,
 				F42171B31DD1C0540093C82D /* TripViewController.swift */,
 				F4F78F3E22982C5900B77B8A /* TripCollectionViewCell.swift */,
+				F4F78F402298306A00B77B8A /* Trip.swift */,
 			);
 			path = TripCard;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F42171A21DD1C03D0093C82D /* AppDelegate.swift in Sources */,
+				F4F78F412298306A00B77B8A /* Trip.swift in Sources */,
 				F42171B41DD1C0540093C82D /* TripViewController.swift in Sources */,
 				F4F78F3F22982C5900B77B8A /* TripCollectionViewCell.swift in Sources */,
 			);
