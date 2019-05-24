@@ -12,6 +12,7 @@
 		F42171A91DD1C03D0093C82D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F42171A81DD1C03D0093C82D /* Assets.xcassets */; };
 		F42171AC1DD1C03D0093C82D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F42171AA1DD1C03D0093C82D /* LaunchScreen.storyboard */; };
 		F42171B41DD1C0540093C82D /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42171B31DD1C0540093C82D /* TripViewController.swift */; };
+		F4F78F3F22982C5900B77B8A /* TripCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F78F3E22982C5900B77B8A /* TripCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		F42171AB1DD1C03D0093C82D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F42171AD1DD1C03D0093C82D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F42171B31DD1C0540093C82D /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
+		F4F78F3E22982C5900B77B8A /* TripCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				F42171AA1DD1C03D0093C82D /* LaunchScreen.storyboard */,
 				F42171AD1DD1C03D0093C82D /* Info.plist */,
 				F42171B31DD1C0540093C82D /* TripViewController.swift */,
+				F4F78F3E22982C5900B77B8A /* TripCollectionViewCell.swift */,
 			);
 			path = TripCard;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			files = (
 				F42171A21DD1C03D0093C82D /* AppDelegate.swift in Sources */,
 				F42171B41DD1C0540093C82D /* TripViewController.swift in Sources */,
+				F4F78F3F22982C5900B77B8A /* TripCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
