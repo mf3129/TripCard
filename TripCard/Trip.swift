@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 struct Trip {
@@ -17,6 +18,4 @@ struct Trip {
     var price: Int = 0
     var totalDays: Int = 0
     var isLiked: Bool = false
-    
-    
 }
