@@ -57,9 +57,6 @@ class TripViewController: UIViewController {
 
 
 
-
-
-
 extension TripViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
@@ -84,7 +81,21 @@ extension TripViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.layer.cornerRadius = 4.0
         
+        cell.delegate = self
+        
         return cell
     }
     
 }
+    extension TripViewController: TripCollectionCellDelegate {
+        
+        func didLikeButtonPressed(Cell: TripCollectionViewCell) {
+            if let indexPath = collectionView.indexPath(for: Cell) {
+                trips[indexPath.row].isLiked = trips[indexPath.row].isLiked ? false : true
+                
+                Cell.isLiked = trips[indexPath.row].isLiked
+            }
+        }
+    }
+    
+

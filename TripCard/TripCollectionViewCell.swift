@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TripCollectionCellDelegate {
+    func didLikeButtonPressed(Cell: TripCollectionViewCell)
+}
+
 class TripCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
@@ -17,6 +21,9 @@ class TripCollectionViewCell: UICollectionViewCell {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var likeButton: UIButton!
     
+    var delegate: TripCollectionCellDelegate?
+    
+    
     var isLiked: Bool = false {
         didSet {
             if isLiked {
@@ -25,5 +32,9 @@ class TripCollectionViewCell: UICollectionViewCell {
                 likeButton.setImage(UIImage(named: "heart"), for: .normal)
             }
         }
+    }
+    
+    @IBAction func likeButton(sender: AnyObject) {
+        delegate?.didLikeButtonPressed(Cell: self)
     }
 }
