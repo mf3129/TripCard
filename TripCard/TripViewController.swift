@@ -144,15 +144,21 @@ extension TripViewController: UICollectionViewDelegate, UICollectionViewDataSour
 }
 
 
-
-
     extension TripViewController: TripCollectionCellDelegate {
         
         func didLikeButtonPressed(Cell: TripCollectionViewCell) {
             if let indexPath = collectionView.indexPath(for: Cell) {
                 trips[indexPath.row].isLiked = trips[indexPath.row].isLiked ? false : true
-                
                 Cell.isLiked = trips[indexPath.row].isLiked
+                
+                //Updating the trip on Parse
+                trips[indexPath.row].toPFObject().saveInBackground { (success, error) in
+                    if (success) {
+                        print("Succesfully updated the trip")
+                    } else {
+                        print("Error: \(error?.localizedDescription ?? "Unknown Error")")
+                    }
+                }
             }
         }
     }
