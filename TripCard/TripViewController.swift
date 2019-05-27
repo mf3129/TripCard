@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class TripViewController: UIViewController {
     
@@ -31,6 +32,7 @@ class TripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadTripsFromParse()
         // Makes the collection view transparent
         collectionView.backgroundColor = UIColor.clear
         
@@ -79,7 +81,7 @@ extension TripViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.cityLabel.text = trips[indexPath.row].city
         cell.countryLabel.text = trips[indexPath.row].country
-        cell.imageView.image = trips[indexPath.row].featuredImage
+        //cell.imageView.image = trips[indexPath.row].featuredImage
         cell.priceLabel.text = "$\(String(trips[indexPath.row].price))"
         cell.totalDaysLabel.text = "$\(String(trips[indexPath.row].totalDays))"
         cell.isLiked = trips[indexPath.row].isLiked
@@ -88,10 +90,54 @@ extension TripViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.delegate = self
         
+        //Load image in the background from parse database
+        cell.imageView.image = UIImage()
+        if let featuredImage = trips[indexPath.row].featuredImage {
+            featuredImage.getDataInBackground(block: { (imageData, error) in
+                if let tripImageData = imageData {
+                    cell.imageView.image = UIImage(data: tripImageData)
+                }
+            })
+        }
+        
         return cell
     }
     
+    //Parse Learning Method
+    
+    func loadTripsFromParse(){
+        //Clearing the array
+        trips.removeAll(keepingCapacity: true)
+        collectionView.reloadData()
+        
+        //Pulling Data From Parse
+        let query = PFQuery(className: "Trip")
+        query.findObjectsInBackground{(objects, error) -> Void in
+            
+            if let error = error {
+                print("Error: \(error) \(error.localizedDescription)")
+                return
+            }
+            
+            if let objects = objects {
+                for (index, object) in objects.enumerated() {
+                    
+                    //Convert PFObject into a Trip object
+                    let trip = Trip(pfObject: object)
+                    self.trips.append(trip)
+                    
+                    let indexPath = IndexPath(row: index, section: 0)
+                    self.collectionView.insertItems(at: [indexPath])
+                    
+                }
+            }
+        }
+    }
 }
+
+
+
+
     extension TripViewController: TripCollectionCellDelegate {
         
         func didLikeButtonPressed(Cell: TripCollectionViewCell) {

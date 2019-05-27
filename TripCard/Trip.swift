@@ -6,21 +6,21 @@
 //  Copyright © 2019 MakanFofana. All rights reserved.
 //
 
-
-import UIKit
 import Parse
+import UIKit
+import Foundation
 
 
 struct Trip {
     var tripId = ""
     var city = ""
     var country = ""
-    var featuredImage: PFFile? //UIImage?
+    var featuredImage: PFFileObject?
     var price: Int = 0
     var totalDays: Int = 0
     var isLiked: Bool = false
     
-    init(tripId: String, city: String, country: String, featuredImage: PFFile!, price: Int, totalDays: Int , isLiked: Bool) {
+    init(tripId: String, city: String, country: String, featuredImage: PFFileObject?, price: Int, totalDays: Int, isLiked: Bool) {
         self.tripId = tripId
         self.city = city
         self.country = country
@@ -35,9 +35,9 @@ struct Trip {
         self.tripId = pfObject.objectId!
         self.city = pfObject["city"] as! String
         self.country = pfObject["country"] as! String
-        self.featuredImage = pfObject["featuredImage"] as? PFFile
+        self.featuredImage = pfObject["featuredImage"] as? PFFileObject
         self.price = pfObject["price"] as! Int
-        self.totalDays = pfObject["city"] as! Int
+        self.totalDays = pfObject["totalDays"] as! Int
         self.isLiked = pfObject["isLiked"] as! Bool
     }
     
