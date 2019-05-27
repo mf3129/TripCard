@@ -116,6 +116,7 @@ extension TripViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         //Pulling Data From Parse
         let query = PFQuery(className: "Trip")
+        query.cachePolicy = PFCachePolicy.networkElseCache
         query.findObjectsInBackground{(objects, error) -> Void in
             
             if let error = error {
