@@ -20,7 +20,7 @@ struct Trip {
     var totalDays: Int = 0
     var isLiked: Bool = false
     
-    init(tripId: String, city: String, country: String, featuredImage: PFFileObject?, price: Int, totalDays: Int, isLiked: Bool) {
+    init(tripId: String, city: String, country: String, featuredImage: PFFileObject!, price: Int, totalDays: Int, isLiked: Bool) {
         self.tripId = tripId
         self.city = city
         self.country = country

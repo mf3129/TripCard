@@ -7,6 +7,7 @@
 
 import UIKit
 import Parse
+import Foundation
 
 class TripViewController: UIViewController {
     
@@ -52,6 +53,12 @@ class TripViewController: UIViewController {
             let flowLayout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
             flowLayout.itemSize = CGSize(width: 250.0, height: 330.0)
         }
+        
+        //Swipe Gesture Recognizer For Deletion
+        let swipeUpRecognizer  = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeUpRecognizer.direction = .up
+        swipeUpRecognizer.delegate = self
+        self.collectionView.addGestureRecognizer(swipeUpRecognizer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +69,7 @@ class TripViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
     
 }
 
@@ -90,6 +98,7 @@ extension TripViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.totalDaysLabel.text = "$\(String(trips[indexPath.row].totalDays))"
         cell.isLiked = trips[indexPath.row].isLiked
         
+        //Applying the round corners
         cell.layer.cornerRadius = 4.0
         
         cell.delegate = self
@@ -162,5 +171,30 @@ extension TripViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }
     }
+
+
+extension TripViewController: UIGestureRecognizerDelegate {
+    
+    @objc func handleSwipe(gesture: UISwipeGestureRecognizer) {
+        let point = gesture.location(in: self.collectionView)
+        
+        if (gesture.state == UIGestureRecognizer.State.ended) {
+            if let indexPath = collectionView.indexPathForItem(at: point) {
+                // Remove trip from Parse, array and collection view
+                trips[indexPath.row].toPFObject().deleteInBackground(block: { (success, error) -> Void in
+                    if (success) {
+                        print("Successfully removed the trip")
+                    } else {
+                        print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                        return
+                    }
+                    
+                    self.trips.remove(at: indexPath.row)
+                    self.collectionView.deleteItems(at: [indexPath])
+                })
+            }
+        }
+    }
+}
     
 
