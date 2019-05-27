@@ -139,11 +139,25 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H95-is-Mwt">
+                                <rect key="frame" x="332" y="25" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="i5t-zv-JiV"/>
+                                    <constraint firstAttribute="width" constant="30" id="zd2-2Y-dUT"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="reload">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="reloadButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J8u-fF-qdA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bmk-KD-bp6" firstAttribute="top" secondItem="ORI-uf-0Wr" secondAttribute="top" id="4Hz-qg-k24"/>
                             <constraint firstItem="1Cl-eh-NiC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8KT-vE-aRy"/>
+                            <constraint firstItem="ORI-uf-0Wr" firstAttribute="trailing" secondItem="H95-is-Mwt" secondAttribute="trailing" constant="13" id="9PQ-iM-cfB"/>
                             <constraint firstItem="1Cl-eh-NiC" firstAttribute="leading" secondItem="ORI-uf-0Wr" secondAttribute="leading" id="BIn-fi-z9S"/>
                             <constraint firstItem="V0O-hE-S8t" firstAttribute="leading" secondItem="ORI-uf-0Wr" secondAttribute="leading" id="Kgr-Gk-eef"/>
                             <constraint firstItem="ORI-uf-0Wr" firstAttribute="bottom" secondItem="V0O-hE-S8t" secondAttribute="bottom" id="LHG-7j-uI7"/>
@@ -155,6 +169,7 @@
                             <constraint firstItem="bmk-KD-bp6" firstAttribute="leading" secondItem="ORI-uf-0Wr" secondAttribute="leading" constant="16" id="nzR-cE-P73"/>
                             <constraint firstItem="v31-p8-Q1Z" firstAttribute="leading" secondItem="ORI-uf-0Wr" secondAttribute="leading" constant="16" id="oi8-in-0R9"/>
                             <constraint firstItem="ORI-uf-0Wr" firstAttribute="trailing" secondItem="V0O-hE-S8t" secondAttribute="trailing" id="sKr-W3-ef6"/>
+                            <constraint firstItem="H95-is-Mwt" firstAttribute="top" secondItem="ORI-uf-0Wr" secondAttribute="top" constant="5" id="upg-N8-YmT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ORI-uf-0Wr"/>
                     </view>
@@ -170,5 +185,6 @@
     </scenes>
     <resources>
         <image name="heart" width="128" height="128"/>
+        <image name="reload" width="128" height="128"/>
     </resources>
 </document>

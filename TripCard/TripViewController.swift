@@ -16,6 +16,10 @@ class TripViewController: UIViewController {
     
     private var trips  = [Trip]()
     
+    //Loading trip from the Parse database
+    @IBAction func reloadButtonTapped(_ sender: Any) {
+        loadTripsFromParse()
+    }
     
     
     /*private var trips: Array = [Trip(tripId: "Paris001", city: "Paris", country: "France", featuredImage: UIImage(named: "paris"), price: 2000, totalDays: 5, isLiked: false),
@@ -133,6 +137,9 @@ extension TripViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }
     }
+    
+    
+    
 }
 
 
